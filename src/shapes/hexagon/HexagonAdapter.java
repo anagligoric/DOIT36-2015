@@ -9,6 +9,10 @@ import shapes.Moveable;
 
 public class HexagonAdapter extends FilledShape  implements Moveable{
 	
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L;
 	private Hexagon hexagon;
 
 	public HexagonAdapter(Hexagon hexagon) {
@@ -115,7 +119,7 @@ public class HexagonAdapter extends FilledShape  implements Moveable{
 		if (o instanceof HexagonAdapter) {
 			return hexagon.getR() - ((HexagonAdapter) o).getHexagon().getR();
 		}
-		return 0;		
+		return -1;		
 	}
 	
 

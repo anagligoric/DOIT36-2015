@@ -18,19 +18,21 @@ public class RemoveHexagonAdapter implements Command {
 
 	}
 	
-	public void execute() {
+	public boolean execute() {
 		this.model.remove(hexagon);
-		//log.getModel().addElement("Remove: " + hexagon.toString());
+		return true;
 
 		
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.add(hexagon);
-		//log.getModel().addElement("Undo Remove: " + hexagon.toString());
+		return true;
 
 		
 	}
-
+	public String toString() {
+		return "Remove: " + hexagon.toString();
+	}
 }

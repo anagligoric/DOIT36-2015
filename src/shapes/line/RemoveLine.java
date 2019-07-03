@@ -19,19 +19,21 @@ public class RemoveLine implements Command {
 	}
 	
 	@Override
-	public void execute() {
+	public boolean execute() {
 		this.model.remove(line);
-		//log.getModel().addElement("Remove: " + line.toString());
+		return true;
 
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.add(line);
-		//log.getModel().addElement("Undo Remove: " + line.toString());
+		return true;
 
 	}
 	
-	
+	public String toString() {
+		return "Remove: " + line.toString();
+	}
 
 }

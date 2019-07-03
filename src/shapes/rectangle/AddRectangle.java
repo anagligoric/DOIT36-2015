@@ -7,7 +7,6 @@ import shapes.Command;
 public class AddRectangle implements Command{
 	private ShapeModel model;
 	private Rectangle rectangle;
-	//private LoggerView log;
 
 	
 	public AddRectangle(ShapeModel model, Rectangle rectangle) {//, LoggerView log) {
@@ -19,19 +18,23 @@ public class AddRectangle implements Command{
 	
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		this.model.add(rectangle);
-		//log.getModel().addElement("Add: " + rectangle.toString());
+		return true;
 
 		
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.remove(rectangle);
-		//log.getModel().addElement("Undo Add: " + rectangle.toString());
+		return true;
 
 		
+	}
+	@Override
+	public String toString() {
+		return "Add: " + rectangle.toString();
 	}
 
 }

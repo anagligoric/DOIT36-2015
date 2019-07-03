@@ -33,6 +33,7 @@ public class OptionsView extends JPanel{
 		add(tglbtnSelect, gbc_tglbtnSelect);
 		
 		btnModify = new JButton("Modify");
+		btnModify.setEnabled(false);
 		GridBagConstraints gbc_btnModify = new GridBagConstraints();
 		gbc_btnModify.insets = new Insets(0, 0, 5, 0);
 		gbc_btnModify.fill = GridBagConstraints.BOTH;
@@ -41,6 +42,7 @@ public class OptionsView extends JPanel{
 		add(btnModify, gbc_btnModify);
 		
 		btnDelete = new JButton("Delete");
+		btnDelete.setEnabled(false);
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
 		gbc_btnDelete.insets = new Insets(0, 0, 5, 0);
 		gbc_btnDelete.fill = GridBagConstraints.BOTH;
@@ -49,6 +51,7 @@ public class OptionsView extends JPanel{
 		add(btnDelete, gbc_btnDelete);
 		
 		btnBringToFront = new JButton("Bring to front");
+		btnBringToFront.setEnabled(false);
 		GridBagConstraints gbc_btnBringToFront = new GridBagConstraints();
 		gbc_btnBringToFront.insets = new Insets(0, 0, 5, 0);
 		gbc_btnBringToFront.fill = GridBagConstraints.BOTH;
@@ -57,6 +60,7 @@ public class OptionsView extends JPanel{
 		add(btnBringToFront, gbc_btnBringToFront);
 		
 		btnSendToFront = new JButton("Send to front");
+		btnSendToFront.setEnabled(false);
 		GridBagConstraints gbc_btnSendToFront = new GridBagConstraints();
 		gbc_btnSendToFront.insets = new Insets(0, 0, 5, 0);
 		gbc_btnSendToFront.fill = GridBagConstraints.BOTH;
@@ -65,6 +69,7 @@ public class OptionsView extends JPanel{
 		add(btnSendToFront, gbc_btnSendToFront);
 		
 		btnBringToBack = new JButton("Bring to back");
+		btnBringToBack.setEnabled(false);
 		GridBagConstraints gbc_btnBringToBack = new GridBagConstraints();
 		gbc_btnBringToBack.insets = new Insets(0, 0, 5, 0);
 		gbc_btnBringToBack.fill = GridBagConstraints.BOTH;
@@ -73,6 +78,7 @@ public class OptionsView extends JPanel{
 		add(btnBringToBack, gbc_btnBringToBack);
 		
 		btnSendToBack = new JButton("Send to back");
+		btnSendToBack.setEnabled(false);
 		GridBagConstraints gbc_btnSendToBack = new GridBagConstraints();
 		gbc_btnSendToBack.fill = GridBagConstraints.BOTH;
 		gbc_btnSendToBack.insets = new Insets(0, 0, 5, 0);
@@ -81,6 +87,8 @@ public class OptionsView extends JPanel{
 		add(btnSendToBack, gbc_btnSendToBack);
 		
 		btnUndo = new JButton("Undo");
+		btnUndo.setEnabled(false);
+
 		GridBagConstraints gbc_btnUndo = new GridBagConstraints();
 		gbc_btnUndo.fill = GridBagConstraints.BOTH;
 		gbc_btnUndo.insets = new Insets(0, 0, 5, 0);
@@ -89,6 +97,8 @@ public class OptionsView extends JPanel{
 		add(btnUndo, gbc_btnUndo);
 		
 		btnRedo = new JButton("Redo");
+		btnRedo.setEnabled(false);
+
 		GridBagConstraints gbc_btnRedo = new GridBagConstraints();
 		gbc_btnRedo.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnRedo.insets = new Insets(0, 0, 5, 0);

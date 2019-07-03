@@ -24,7 +24,7 @@ public class UpdateHexagonAdapter implements Command{
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		oldState.getHexagon().setX(original.getHexagon().getX());
 		oldState.getHexagon().setY(original.getHexagon().getY());
 		oldState.getHexagon().setR(original.getHexagon().getR());
@@ -37,23 +37,26 @@ public class UpdateHexagonAdapter implements Command{
 		original.setClrBorderColor(newState.getClrBorderColor());
 		original.setClrInnerColor(newState.getClrInnerColor());
 		
-		//log.getModel().addElement("Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
+
 		original.getHexagon().setX(oldState.getHexagon().getX());
 		original.getHexagon().setY(oldState.getHexagon().getY());
 		original.getHexagon().setR(oldState.getHexagon().getR());
 		original.setClrBorderColor(oldState.getClrBorderColor());
 		original.setClrInnerColor(oldState.getClrInnerColor());
 		
-		//log.getModel().addElement("Undo Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 
 	}
-
+	public String toString() {
+		return "Update: " + original.toString()+ " to "+ newState.toString();
+	}
 }
 
 

@@ -19,18 +19,22 @@ public class AddLine implements Command{
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		this.model.add(line);
-		//log.getModel().addElement("Add: " + line.toString());
+		return true;
 
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.remove(line);
-		//log.getModel().addElement("Undo Add: " + line.toString());
+		return true;
 
 		
+	}
+	@Override
+	public String toString() {
+		return "Add: " + line.toString();
 	}
 
 }

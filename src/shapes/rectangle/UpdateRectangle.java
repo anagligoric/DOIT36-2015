@@ -1,6 +1,7 @@
 package shapes.rectangle;
 
 import shapes.Command;
+import shapes.circle.Circle;
 import shapes.point.Point;
 //import view.LoggerView;
 
@@ -12,15 +13,14 @@ public class UpdateRectangle implements Command {
 	//private LoggerView log;
 
 	
-	public UpdateRectangle(Rectangle original, Rectangle newState) {//, LoggerView log) {
+	public UpdateRectangle(Rectangle original, Rectangle newState) {
 		this.original = original;
 		this.newState = newState;
-		//this.log = log;
 
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		oldState.getUpperLeft().setX(original.getUpperLeft().getX());
 		oldState.getUpperLeft().setY(original.getUpperLeft().getY());
 		oldState.setSideLength(original.getSideLength());
@@ -35,13 +35,13 @@ public class UpdateRectangle implements Command {
 		original.setClrBorderColor(newState.getClrBorderColor());
 		original.setClrInnerColor(newState.getClrInnerColor());
 		
-		//log.getModel().addElement("Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 		
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		original.getUpperLeft().setX(oldState.getUpperLeft().getX());
 		original.getUpperLeft().setY(oldState.getUpperLeft().getY());
 		original.setSideLength(oldState.getSideLength());
@@ -49,10 +49,13 @@ public class UpdateRectangle implements Command {
 		original.setClrBorderColor(oldState.getClrBorderColor());
 		original.setClrInnerColor(oldState.getClrInnerColor());
 		
-		//log.getModel().addElement("Undo Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 		
 		
+	}
+	public String toString() {
+		return "Update: " + original.toString()+ " to "+ newState.toString();
 	}
 
 }

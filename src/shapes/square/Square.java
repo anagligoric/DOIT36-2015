@@ -10,6 +10,10 @@ import shapes.point.Point;
 
 public class Square extends FilledShape implements Moveable{
 	
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L;
 	protected Point upperLeft;
 	protected int sideLength;
 	

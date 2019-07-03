@@ -7,6 +7,10 @@ import shapes.Moveable;
 import shapes.Shape;
 
 public class Point extends Shape implements Moveable{
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L;
 	private int x;
 	private int y;
 

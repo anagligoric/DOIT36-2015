@@ -2,9 +2,14 @@ package shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public abstract class Shape implements Comparable<Object>{
+public abstract class Shape implements Serializable, Comparable<Object>{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String strBorderColor = "black";
 	private Color clrBorderColor = Color.BLACK; 
 	private boolean selected;

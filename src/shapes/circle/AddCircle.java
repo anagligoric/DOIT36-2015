@@ -18,16 +18,19 @@ public class AddCircle implements Command{
 
 	}
 	@Override
-	public void execute() {
+	public boolean execute() {
 		this.model.add(circle);
-		//log.getModel().addElement("Add: " + circle.toString());
+		return true;
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.remove(circle);
-		//log.getModel().addElement("Undo Add: " + circle.toString());
+		return true;
 
 	}
-
+	@Override
+	public String toString() {
+		return "Add: " + circle.toString();
+	}
 }

@@ -17,16 +17,21 @@ public class AddPoint implements Command {
 	}
 	
 	@Override
-	public void execute() {
+	public boolean execute() {
 		this.model.add(point);
-		//log.getModel().addElement("Add: " + point.toString());
+		return true;
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.remove(point);
-		//log.getModel().addElement("Undo Add: " + point.toString());
+		return true;
 
+	}
+	
+	@Override
+	public String toString() {
+		return "Add: " + point.toString();
 	}
 
 }

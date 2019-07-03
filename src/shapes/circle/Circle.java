@@ -9,6 +9,10 @@ import shapes.line.Line;
 import shapes.point.Point;
 
 public class Circle extends FilledShape implements Moveable{
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L;
 	private Point center;
 	private int r;
 	
@@ -103,7 +107,7 @@ public class Circle extends FilledShape implements Moveable{
 			return this.r - pomocni.r;
 		}
 		else
-			return 0;
+			return -1;
 	}
 	public Point getCenter() {
 		return center;

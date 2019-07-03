@@ -18,17 +18,16 @@ public class RemoveCircle implements Command {
 
 	}
 	@Override
-	public void execute() {
+	public boolean execute() {
 		this.model.remove(circle);
-		//log.getModel().addElement("Remove: " + circle.toString());
+		return true;
 
-		
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.add(circle);
-		//log.getModel().addElement("Undo Remove: " + circle.toString());
+		return true;
 
 	}
 

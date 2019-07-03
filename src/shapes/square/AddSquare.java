@@ -18,18 +18,21 @@ public class AddSquare implements Command {
 
 	}
 	@Override
-	public void execute() {
+	public boolean execute() {
 		this.model.add(square);
-		//log.getModel().addElement("Add: " + square.toString());
+		return true;
 
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.remove(square);
-		//log.getModel().addElement("Undo Add: " + square.toString());
+		return true;
 
 		
 	}
-
+	@Override
+	public String toString() {
+		return "Add: " + square.toString();
+	}
 }

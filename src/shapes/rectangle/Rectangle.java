@@ -8,12 +8,9 @@ import shapes.point.Point;
 import shapes.square.Square;
 
 public class Rectangle extends Square{
-	/**
-	 * 
-	 */
-	/**
-	 * 
-	 */
+	
+	//private static final long serialVersionUID = 1L;
+	
 	private int width;
 
 	public Rectangle(){

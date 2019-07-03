@@ -18,17 +18,20 @@ public class RemovePoint implements Command {
 		//this.log = log;
 	}
 	@Override
-	public void execute() {
+	public boolean execute() {
 		this.model.remove(point);
-		//log.getModel().addElement("Remove: " + point.toString());
-}
+		return true;
+		}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		this.model.add(point);
-		//log.getModel().addElement("Undo Remove: " + point.toString());
+		return true;
 
 		
+	}
+	public String toString() {
+		return "Remove: " + point.toString();
 	}
 
 }

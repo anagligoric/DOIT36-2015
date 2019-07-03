@@ -20,7 +20,7 @@ public class UpdateSquare implements Command {
 	}
 	
 	@Override
-	public void execute() {
+	public boolean execute() {
 		oldState.getUpperLeft().setX(original.getUpperLeft().getX());
 		oldState.getUpperLeft().setY(original.getUpperLeft().getY());
 		oldState.setSideLength(original.getSideLength());
@@ -33,21 +33,23 @@ public class UpdateSquare implements Command {
 		original.setClrBorderColor(newState.getClrBorderColor());
 		original.setClrInnerColor(newState.getClrInnerColor());
 		
-		//log.getModel().addElement("Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		original.getUpperLeft().setX(oldState.getUpperLeft().getX());
 		original.getUpperLeft().setY(oldState.getUpperLeft().getY());
 		original.setSideLength(oldState.getSideLength());
 		original.setClrBorderColor(oldState.getClrBorderColor());
 		original.setClrInnerColor(oldState.getClrInnerColor());
 		
-		//log.getModel().addElement("Undo Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 		
 	}
-
+	public String toString() {
+		return "Update: " + original.toString()+ " to "+ newState.toString();
+	}
 }

@@ -1,6 +1,13 @@
 package controllers;
 
+
 import app.MainFrame;
+import dialogs.DlgModifyCircle;
+import dialogs.DlgModifyHexagon;
+import dialogs.DlgModifyLine;
+import dialogs.DlgModifyPoint;
+import dialogs.DlgModifyRectangle;
+import dialogs.DlgModifySquare;
 import models.CommandModel;
 import models.ShapeModel;
 import shapes.point.Point;
@@ -11,13 +18,13 @@ import shapes.line.*;
 import shapes.point.*;
 import shapes.rectangle.*;
 import shapes.square.*;
-//import view.LoggerView;
 import shapes.hexagon.*;
 
 public class CommandController {
+	@SuppressWarnings("unused")
 	private CommandModel model = new CommandModel();
+	@SuppressWarnings("unused")
 	private MainFrame frame;
-	//private LoggerView log;
 	
 	public CommandController(CommandModel model, MainFrame frame) {
 		this.model = model;
@@ -39,58 +46,72 @@ public class CommandController {
 	
 	public Command generateRemoveCommand(Shape shape, ShapeModel shapeModel)
 	{
-		if(shape instanceof Point) return new RemovePoint(shapeModel, (Point)shape);
-		else if(shape instanceof Line) return new RemoveLine(shapeModel, (Line)shape);
-		else if(shape instanceof Circle) return new RemoveCircle(shapeModel, (Circle)shape);
-		else if(shape instanceof Rectangle) return new RemoveRectangle(shapeModel, (Rectangle)shape);
-		else if(shape instanceof Square) return new RemoveSquare(shapeModel, (Square)shape);
-		else if(shape instanceof HexagonAdapter) return new RemoveHexagonAdapter(shapeModel, (HexagonAdapter)shape);
-		return null;
+			if(shape instanceof Point) return new RemovePoint(shapeModel, (Point)shape);
+			else if(shape instanceof Line) return new RemoveLine(shapeModel, (Line)shape);
+			else if(shape instanceof Circle) return new RemoveCircle(shapeModel, (Circle)shape);
+			else if(shape instanceof Rectangle) return new RemoveRectangle(shapeModel, (Rectangle)shape);
+			else if(shape instanceof Square) return new RemoveSquare(shapeModel, (Square)shape);
+			else if(shape instanceof HexagonAdapter) return new RemoveHexagonAdapter(shapeModel, (HexagonAdapter)shape);
+			return null;
+	
 	}
 	
 	public Command generateUpdateCommand(Shape shape, ShapeModel shapeModel)
 	{
 		if(shape instanceof Point) 
 			{
-			/*UpdatePointDialog updatePoint = new UpdatePointDialog((Point) shape);
-			if (updatePoint.getPoint() != null) {
-				return new UpdatePoint((Point) shape, updatePoint.getPoint());*/
-			//}
-			
+			DlgModifyPoint modifyPoint = new DlgModifyPoint((Point) shape);
+			System.out.println("Generateupdate:" + shape.toString());
+			modifyPoint.setVisible(true);
+			if (modifyPoint.getPoint() != null) {
+				System.out.println("Generateupdate after dlg:" + shape.toString());
+
+				System.out.println("new point:" + modifyPoint.getPoint().toString());
+				return new UpdatePoint((Point) shape, modifyPoint.getPoint());		
+			}
 			}
 		else if(shape instanceof Line) {
-			/*UpdateLineDialog updateLine = new UpdateLineDialog((Line) shape);
-			if(updateLine.getLine() != null) {
-				return new UpdateLine((Line)shape, updateLine.getLine());*/
-			//}
+			DlgModifyLine modifyLine = new DlgModifyLine((Line) shape);
+			modifyLine.setVisible(true);
+			if(modifyLine.getLine() != null) {
+				return new UpdateLine((Line)shape, modifyLine.getLine());		
+		}
 		}
 		else if(shape instanceof Circle) {
-			/*UpdateCircleDialog updateCircle = new UpdateCircleDialog((Circle) shape);
-			if(updateCircle.getCircle() != null) {
-				return new UpdateCircle((Circle)shape, updateCircle.getCircle());*/
-			//}
+			DlgModifyCircle modifyCircle = new DlgModifyCircle((Circle) shape);
+			System.out.println("Generateupdate:" + shape.toString());
+
+			modifyCircle.setVisible(true);
+			if(modifyCircle.getCircle() != null) {
+				System.out.println("new point:" + modifyCircle.getCircle().toString());
+
+				return new UpdateCircle((Circle)shape, modifyCircle.getCircle());
 		}
-		else if(shape instanceof Rectangle) {
-			/*UpdateRectangleDialog updateRectangle = new UpdateRectangleDialog((Rectangle) shape);
-			if(updateRectangle.getRectangle() != null) {
-				return new UpdateRectangle((Rectangle)shape, updateRectangle.getRectangle());
-			}		*/
+		}
+		else if(shape instanceof Rectangle && !(shape instanceof Square)) {
+			DlgModifyRectangle modifyRectangle = new DlgModifyRectangle((Rectangle) shape);
+			modifyRectangle.setVisible(true);
+			if(modifyRectangle.getRectangle() != null) {
+				return new UpdateRectangle((Rectangle)shape, modifyRectangle.getRectangle());
+			}		
 		}
 		else if(shape instanceof Square) {
-			//UpdateSquareDialog updateSquare = new UpdateSquareDialog((Square) shape);
-			/*
-			 * if(updateSquare.getSquare() != null) { return new UpdateSquare((Square)shape,
-			 * updateSquare.getSquare()); }
-			 */	
+			DlgModifySquare modifySquare = new DlgModifySquare((Square) shape);
+			modifySquare.setVisible(true);
+			  if(modifySquare.getSquare() != null) { return new UpdateSquare((Square)shape,
+					  modifySquare.getSquare()); }	 	
 		}
 		else if(shape instanceof HexagonAdapter) {
-			//UpdateHexagonDialog updateHexagon = new UpdateHexagonDialog((HexagonAdapter) shape);
-			/*
-			 * if(updateHexagon.getHexagon() != null) { return new
-			 * UpdateHexagonAdapter((HexagonAdapter)shape, updateHexagon.getHexagon()); }
-			 */}
+			DlgModifyHexagon modifyHexagon = new DlgModifyHexagon((HexagonAdapter) shape);	
+			modifyHexagon.setVisible(true);
+					  if(modifyHexagon.getHexagon() != null) { return new
+					  UpdateHexagonAdapter((HexagonAdapter)shape, modifyHexagon.getHexagon()); }
+					 }
 		return null;
 	}
 	
 	
 }
+
+	
+

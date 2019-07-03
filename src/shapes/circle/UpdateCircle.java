@@ -23,7 +23,7 @@ public class UpdateCircle implements Command{
 	}
 	
 	@Override
-	public void execute() {
+	public boolean execute() {
 		
 		System.out.println(oldState.toString());
 		System.out.println(original.toString());
@@ -41,21 +41,23 @@ public class UpdateCircle implements Command{
 		original.setClrInnerColor(newState.getClrInnerColor());
 		original.setClrBorderColor(newState.getClrBorderColor());
 		
-		//log.getModel().addElement("Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 		
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		original.getCenter().setX(oldState.getCenter().getX());
 		original.getCenter().setY(oldState.getCenter().getY());
 		original.setR(oldState.getR());
 		original.setClrInnerColor(oldState.getClrInnerColor());
 		original.setClrBorderColor(oldState.getClrBorderColor());
-		//log.getModel().addElement("Undo Update: " + original.toString()+ " to "+ newState.toString());
-
-		
+		return true;
+	
+	}
+	public String toString() {
+		return "Update: " + original.toString()+ " to "+ newState.toString();
 	}
 
 }

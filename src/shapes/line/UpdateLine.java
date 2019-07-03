@@ -20,7 +20,7 @@ public class UpdateLine implements Command{
 
 	}
 	@Override
-	public void execute() {
+	public boolean execute() {
 		oldState.getpStart().setX(original.getpStart().getX());
 		oldState.getpStart().setY(original.getpStart().getY());
 		oldState.getpEnd().setX(original.getpEnd().getX());
@@ -33,20 +33,23 @@ public class UpdateLine implements Command{
 		original.getpEnd().setY(newState.getpEnd().getY());
 		original.setClrBorderColor(newState.getClrBorderColor());
 		
-		//log.getModel().addElement("Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 		original.getpStart().setX(oldState.getpStart().getX());
 		original.getpStart().setY(oldState.getpStart().getY());
 		original.getpEnd().setX(oldState.getpEnd().getX());
 		original.getpEnd().setY(oldState.getpEnd().getY());
 		original.setClrBorderColor(oldState.getClrBorderColor());
 		
-		//log.getModel().addElement("Undo Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
+	}
+	public String toString() {
+		return "Update: " + original.toString()+ " to "+ newState.toString();
 	}
 
 }

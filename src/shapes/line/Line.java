@@ -7,6 +7,10 @@ import shapes.Shape;
 import shapes.point.Point;
 
 public class Line extends Shape {
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L;
 	private Point pStart;
 	private Point pEnd;
 
@@ -28,13 +32,14 @@ public class Line extends Shape {
 
 	}
 	
-	public Line(Point pStart, Point pEnd,Color color)
+	public Line(Point pStart, Point pEnd, Color color)
 	{
 	
 		this(pStart, pEnd);
 		setClrBorderColor(color);
 
 	}
+	
 	
 	public Point midpoint()
 	{
@@ -102,7 +107,7 @@ public class Line extends Shape {
 			return (int)this.length() - (int)helper.length();
 		}
 		else
-			return 0;
+			return -1;
 	}
 	public Point getpStart() {
 		return pStart;

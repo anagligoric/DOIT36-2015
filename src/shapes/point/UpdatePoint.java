@@ -16,7 +16,7 @@ public class UpdatePoint implements Command {
 	}	
 	
 	@Override
-	public void execute() {
+	public boolean execute() {
 		oldState.setX(original.getX());
 		oldState.setY(original.getY());
 		oldState.setClrBorderColor(original.getClrBorderColor());
@@ -25,20 +25,22 @@ public class UpdatePoint implements Command {
 		original.setY(newState.getY());
 		original.setClrBorderColor(newState.getClrBorderColor());
 		
-		//log.getModel().addElement("Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 	}
 
 	@Override
-	public void unexecute() {
+	public boolean unexecute() {
 
 		original.setX(oldState.getX());
 		original.setY(oldState.getY());
 		original.setClrBorderColor(oldState.getClrBorderColor());
 		
-	//	log.getModel().addElement("Undo Update: " + original.toString()+ " to "+ newState.toString());
+		return true;
 
 		
 	}
-
+	public String toString() {
+		return "Update: " + original.toString()+ " to "+ newState.toString();
+	}
 }

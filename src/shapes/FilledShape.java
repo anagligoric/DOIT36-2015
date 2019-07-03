@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public abstract class FilledShape extends Shape{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String strInnerColor = "white";
 	private Color clrInnerColor = Color.WHITE;
 	
